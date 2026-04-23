@@ -1,0 +1,3 @@
+Drop your resume PDF here and name it `resume.pdf`.
+
+The site links to `/resume.pdf` from the Nav, Hero and Footer.
