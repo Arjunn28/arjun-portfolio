@@ -1,10 +1,10 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
-import { Users, Mic, Globe, Award } from "lucide-react";
 
 type Achievement = {
-  icon: React.ReactNode;
+  image: string;
   title: string;
   org: string;
   body: string;
@@ -13,31 +13,31 @@ type Achievement = {
 
 const achievements: Achievement[] = [
   {
-    icon: <Mic className="w-5 h-5" />,
+    image: "/zone_trainer.png",
     title: "Certified Zone Trainer",
     org: "Junior Chamber International India",
     body: "Trained 350+ students across the state in Public Speaking, Ethical Use of AI, Modern Personal Grooming and Study Techniques.",
     year: "2025 — Present",
   },
   {
-    icon: <Users className="w-5 h-5" />,
+    image: "/president.png",
     title: "President, JCI Mysore Brindavan",
     org: "Led 40-member team",
     body: "Grew chapter membership by 8% and impacted 400+ lives through wheelchair donations, meal drives and blood donation camps.",
     year: "2024",
   },
   {
-    icon: <Globe className="w-5 h-5" />,
+    image: "/aspac.png",
     title: "Asia-Pacific Conference",
     org: "Represented JCI India",
     body: "Attended the 2024 Asia-Pacific Conference in Cambodia as a JCI India representative.",
     year: "Jun 2024",
   },
   {
-    icon: <Award className="w-5 h-5" />,
+    image: "/star_president.png",
     title: "Star Local President",
-    org: "JCI International Award Series",
-    body: "Recognised for exceptional chapter leadership and community impact during my tenure.",
+    org: "JCI India Award",
+    body: "Recognised for exceptional local chapter leadership and community impact during the tenure.",
     year: "2024",
   },
 ];
@@ -52,8 +52,8 @@ export function BeyondCode() {
         <div className="mb-12">
           <div className="section-label mb-4">Beyond the code</div>
           <h2 className="font-serif text-hero text-ink-50 text-balance max-w-3xl">
-            Leadership, training{" "}
-            <span className="italic text-accent">and the stage!</span>
+            Leadership, training,{" "}
+            <span className="italic text-accent">and the occasional stage.</span>
           </h2>
         </div>
 
@@ -65,25 +65,40 @@ export function BeyondCode() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="group border border-ink-800 bg-ink-900/20 hover:border-accent/30 hover:bg-ink-900/40 transition-all duration-300 p-6"
+              className="group border border-ink-800 bg-ink-900/20 hover:border-accent/30 hover:bg-ink-900/40 transition-all duration-300 overflow-hidden"
             >
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-10 h-10 rounded-sm bg-accent/10 border border-accent/30 text-accent flex items-center justify-center group-hover:bg-accent/20 transition-colors">
-                  {a.icon}
+              {/* Image strip */}
+              <div className="relative w-full h-44 md:h-52 overflow-hidden border-b border-ink-800 bg-ink-900">
+                <Image
+                  src={a.image}
+                  alt={`${a.title} photo`}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  onError={(e) => {
+                    (e.currentTarget as HTMLImageElement).style.display = "none";
+                  }}
+                />
+                {/* Gradient for text legibility */}
+                <div className="absolute inset-0 bg-gradient-to-t from-ink-900/70 via-ink-900/10 to-transparent pointer-events-none" />
+
+                {/* Year badge */}
+                <div className="absolute top-3 right-3 font-mono text-[10px] uppercase tracking-[0.2em] text-ink-100 bg-ink-950/70 backdrop-blur-sm px-2.5 py-1">
+                  {a.year}
                 </div>
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-start justify-between gap-2 mb-1">
-                    <h3 className="font-serif text-lg md:text-xl text-ink-50 leading-tight">
-                      {a.title}
-                    </h3>
-                  </div>
-                  <div className="font-mono text-[10px] uppercase tracking-[0.15em] text-ink-500 mb-3">
-                    {a.org} · {a.year}
-                  </div>
-                  <p className="text-ink-300 text-sm leading-relaxed text-pretty">
-                    {a.body}
-                  </p>
+              </div>
+
+              {/* Body */}
+              <div className="p-6">
+                <h3 className="font-serif text-xl md:text-2xl text-ink-50 leading-tight mb-1.5">
+                  {a.title}
+                </h3>
+                <div className="font-mono text-[10px] uppercase tracking-[0.15em] text-ink-500 mb-4">
+                  {a.org}
                 </div>
+                <p className="text-ink-300 text-sm md:text-base leading-relaxed text-pretty">
+                  {a.body}
+                </p>
               </div>
             </motion.div>
           ))}

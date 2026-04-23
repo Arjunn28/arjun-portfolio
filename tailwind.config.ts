@@ -35,6 +35,7 @@ const config: Config = {
         serif: ["var(--font-serif)", "Georgia", "serif"],
         sans: ["var(--font-sans)", "system-ui", "sans-serif"],
         mono: ["var(--font-mono)", "ui-monospace", "monospace"],
+        nav: ["var(--font-nav)", "system-ui", "sans-serif"],
       },
       fontSize: {
         "display": ["clamp(3rem, 9vw, 7rem)", { lineHeight: "1", letterSpacing: "-0.03em" }],

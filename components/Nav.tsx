@@ -39,12 +39,12 @@ export function Nav() {
           <span className="text-accent">◆</span> ai_with_arjun
         </Link>
 
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-9">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="font-mono text-xs uppercase tracking-[0.15em] text-ink-300 hover:text-accent transition-colors link-underline"
+              className="font-nav text-[15px] font-medium text-ink-300 hover:text-accent transition-colors link-underline"
             >
               {link.label}
             </Link>
@@ -82,7 +82,7 @@ export function Nav() {
             <Link
               key={link.href}
               href={link.href}
-              className="font-mono text-xs uppercase tracking-[0.15em] text-ink-300"
+              className="font-nav text-base font-medium text-ink-300"
               onClick={() => document.getElementById("mobile-menu")?.classList.add("hidden")}
             >
               {link.label}
