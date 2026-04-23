@@ -26,8 +26,7 @@ export function About() {
               </h2>
               <div className="font-mono text-xs text-ink-500 uppercase tracking-[0.15em] space-y-2 border-l-2 border-accent/40 pl-4">
                 <div>JSS STU · CGPA 9.47 / 10</div>
-                <div>B.E. CS & Business Systems</div>
-                <div>Bengaluru · India</div>
+                <div>B.E. Computer Science & Business Systems</div>
               </div>
             </motion.div>
           </div>
@@ -96,7 +95,7 @@ export function About() {
               transition={{ duration: 0.6, delay: 0.5 }}
               className="pt-8 mt-8 border-t border-ink-800 grid grid-cols-2 md:grid-cols-4 gap-6"
             >
-              <Stat label="Years in analytics+AI" value="3" />
+              <Stat label="Years in Prod" value="3" />
               <Stat label="Projects deployed" value="4+" />
               <Stat label="Records at scale" value="2B+" />
               <Stat label="Categories automated" value="167" />

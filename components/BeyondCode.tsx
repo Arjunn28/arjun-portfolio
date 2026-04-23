@@ -52,8 +52,8 @@ export function BeyondCode() {
         <div className="mb-12">
           <div className="section-label mb-4">Beyond the code</div>
           <h2 className="font-serif text-hero text-ink-50 text-balance max-w-3xl">
-            Leadership, training,{" "}
-            <span className="italic text-accent">and the occasional stage.</span>
+            Leadership, training{" "}
+            <span className="italic text-accent">and the stage!</span>
           </h2>
         </div>
 

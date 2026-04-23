@@ -169,7 +169,7 @@ export const caseStudies: Record<string, CaseStudy> = {
     title: "SnapIQ",
     subtitle: "Vision-Powered Document Intelligence",
     oneLiner:
-      "Upload a photo of any business document — invoice, receipt, delivery note — and get back clean, structured JSON with vendor, date, line items and totals, ready to plug into any workflow.",
+      "Upload a photo of any business document: invoice, receipt, delivery note and get back clean, structured JSON with vendor, date, line items and totals, ready to plug into any workflow.",
     problem:
       "Every automation pipeline has a physical-world problem. You can build the most sophisticated ERP workflow in the world, but if your invoices arrive as WhatsApp images and phone photos, someone still has to manually read them and type the data in. That manual step is the bottleneck. It is slow, error-prone and does not scale.",
     sections: [

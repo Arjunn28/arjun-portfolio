@@ -57,7 +57,7 @@ export const projects: Project[] = [
     slug: "snap-iq",
     title: "SnapIQ",
     tagline:
-      "Vision-powered document intelligence. Upload a photo of any business document — invoice, receipt, delivery note — and get back clean, structured JSON ready for any workflow.",
+      "Vision-powered document intelligence. Upload a photo of any business document: invoice, receipt, delivery note and get back clean, structured JSON ready for any workflow.",
     category: "Multimodal AI",
     year: "2026",
     stack: [
