@@ -17,7 +17,7 @@ export function Footer() {
             </Link>
             <p className="text-ink-400 text-sm mt-3 leading-relaxed max-w-xs">
               Data Analyst moving into AI Engineering. Building agents,
-              retrieval systems and vision pipelines.
+              retrieval systems and vision pipelines. 
             </p>
           </div>
 
@@ -27,10 +27,10 @@ export function Footer() {
             </div>
             <ul className="space-y-2">
               {[
+                { href: "/#about", label: "About" },
                 { href: "/#work", label: "Work" },
                 { href: "/#experience", label: "Experience" },
-                { href: "/#principles", label: "Principles" },
-                { href: "/#about", label: "About" },
+                { href: "/#beyond", label: "Beyond" },
                 { href: "/#contact", label: "Contact" },
               ].map((l) => (
                 <li key={l.href}>
@@ -98,10 +98,10 @@ export function Footer() {
           </div>
           <div className="font-mono text-[10px] uppercase tracking-[0.15em] text-ink-500 flex items-center gap-4">
             <span>Built with Next.js + Tailwind</span>
-            <span className="flex items-center gap-1.5">
-              {/* <span className="w-1.5 h-1.5 rounded-full bg-signal-green" /> */}
-              {/* Online */}
-            </span>
+            {/* <span className="flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-signal-green" />
+              Online
+            </span> */}
           </div>
         </div>
       </div>

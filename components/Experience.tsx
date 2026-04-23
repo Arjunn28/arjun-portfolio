@@ -1,94 +1,118 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
-import { experience } from "@/lib/data";
+
+type Role = {
+  role: string;
+  company: string;
+  period: string;
+  location: string;
+  logo: string;
+  current?: boolean;
+};
+
+const roles: Role[] = [
+  {
+    role: "Data Analyst",
+    company: "Target Corporation",
+    period: "Aug 2023 — Present",
+    location: "Bengaluru",
+    logo: "/target.png",
+    current: true,
+  },
+  {
+    role: "AI/ML Intern",
+    company: "Tata Consultancy Services",
+    period: "Jun 2022 — Sep 2022",
+    location: "Bengaluru",
+    logo: "/tcs.png",
+  },
+];
 
 export function Experience() {
   return (
     <section
       id="experience"
-      className="py-24 md:py-32 scroll-mt-20 border-t border-ink-800"
+      className="py-24 md:py-28 scroll-mt-20 border-t border-ink-800"
     >
       <div className="container-x">
-        <div className="mb-16">
+        <div className="mb-12">
           <div className="section-label mb-4">Experience</div>
           <h2 className="font-serif text-hero text-ink-50 text-balance max-w-3xl">
-            Three years of data and AI work{" "}
-            <span className="italic text-accent">at real retail scale.</span>
+            Where I&apos;ve{" "}
+            <span className="italic text-accent">done the work.</span>
           </h2>
         </div>
 
-        <div className="relative">
-          {/* Vertical line */}
-          <div className="absolute left-4 md:left-[180px] top-0 bottom-0 w-px bg-ink-800" />
-
-          <div className="space-y-16 md:space-y-20">
-            {experience.map((job, i) => (
-              <motion.div
-                key={`${job.company}-${i}`}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.6, delay: i * 0.1 }}
-                className="relative grid grid-cols-1 md:grid-cols-[180px_1fr] gap-6 md:gap-12"
-              >
-                {/* Dot */}
-                <div className="absolute left-4 md:left-[180px] -translate-x-[5px] md:-translate-x-[5px] top-1.5 w-[10px] h-[10px] rounded-full bg-accent ring-4 ring-ink-950" />
-
-                {/* Period */}
-                <div className="pl-10 md:pl-0 md:text-right md:pr-8">
-                  <div className="font-mono text-xs uppercase tracking-[0.15em] text-ink-400 mb-1">
-                    {job.period}
-                  </div>
-                  <div className="font-mono text-[10px] uppercase tracking-[0.15em] text-ink-500">
-                    {job.location}
-                  </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+          {roles.map((role, i) => (
+            <motion.div
+              key={role.company}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              className="group border border-ink-800 bg-ink-900/30 hover:border-accent/30 hover:bg-ink-900/50 transition-all duration-300 p-6 md:p-7"
+            >
+              <div className="flex items-start gap-5">
+                {/* Logo */}
+                <div className="relative flex-shrink-0 w-14 h-14 md:w-16 md:h-16 bg-white rounded-sm overflow-hidden flex items-center justify-center p-2">
+                  <Image
+                    src={role.logo}
+                    alt={`${role.company} logo`}
+                    width={64}
+                    height={64}
+                    className="object-contain max-w-full max-h-full"
+                    onError={(e) => {
+                      (e.currentTarget as HTMLImageElement).style.display = "none";
+                    }}
+                  />
                 </div>
 
-                {/* Content */}
-                <div className="pl-10 md:pl-8">
-                  <div className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-2 mb-6">
-                    <div>
-                      <h3 className="font-serif text-2xl md:text-3xl text-ink-50 mb-1">
-                        {job.role}
-                      </h3>
-                      <div className="text-ink-300 text-base">
-                        {job.company}
-                      </div>
-                    </div>
-                  </div>
-
-                  <ul className="space-y-3 mb-6">
-                    {job.bullets.map((bullet, j) => (
-                      <li
-                        key={j}
-                        className="text-ink-300 text-sm md:text-base leading-relaxed flex gap-3 text-pretty"
-                      >
-                        <span className="text-accent flex-shrink-0 mt-1.5">
-                          <svg width="6" height="6" viewBox="0 0 6 6" fill="currentColor">
-                            <rect width="6" height="6" />
-                          </svg>
-                        </span>
-                        <span>{bullet}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <div className="flex flex-wrap gap-2">
-                    {job.stack.map((tech) => (
-                      <span
-                        key={tech}
-                        className="font-mono text-[10px] uppercase tracking-wider text-ink-400 border border-ink-800 px-2.5 py-1"
-                      >
-                        {tech}
+                {/* Details */}
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-start justify-between gap-2 mb-1.5">
+                    <h3 className="font-serif text-xl md:text-2xl text-ink-50 leading-tight">
+                      {role.company}
+                    </h3>
+                    {role.current && (
+                      <span className="flex-shrink-0 flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.15em] text-signal-green bg-signal-green/10 px-2 py-1">
+                        <span className="w-1.5 h-1.5 rounded-full bg-signal-green animate-pulse" />
+                        Current
                       </span>
-                    ))}
+                    )}
+                  </div>
+                  <div className="text-ink-200 text-sm md:text-base mb-3">
+                    {role.role}
+                  </div>
+                  <div className="font-mono text-[10px] md:text-[11px] uppercase tracking-[0.15em] text-ink-500 flex items-center gap-3">
+                    <span>{role.period}</span>
+                    <span className="text-ink-700">·</span>
+                    <span>{role.location}</span>
                   </div>
                 </div>
-              </motion.div>
-            ))}
-          </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="mt-8 font-mono text-xs text-ink-500"
+        >
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 hover:text-accent transition-colors link-underline"
+          >
+            For the detailed bullet-point version, grab the resume ↓
+          </a>
+        </motion.div>
       </div>
     </section>
   );

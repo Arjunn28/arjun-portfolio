@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowDown, ArrowUpRight } from "lucide-react";
 import { socialLinks } from "@/lib/data";
@@ -14,19 +15,46 @@ export function Hero() {
       </div>
 
       <div className="container-x relative z-10 w-full">
+
+        {/* ── Name + Photo row ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.05 }}
+          className="flex items-center gap-5 mb-10"
+        >
+          {/* Photo */}
+          <div className="relative flex-shrink-0">
+            <div className="w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden border-2 border-accent/50 ring-4 ring-ink-900">
+              <Image
+                src="/arjun.jpg"
+                alt="Arjun Abbimutt Nagendra Kumar"
+                width={80}
+                height={80}
+                className="object-cover w-full h-full"
+                priority
+              />
+            </div>
+            {/* Online dot */}
+            {/* <span className="absolute bottom-0.5 right-0.5 w-3 h-3 rounded-full bg-signal-green border-2 border-ink-950" /> */}
+          </div>
+
+          {/* Name + label */}
+          <div>
+            <h2 className="font-serif text-3xl md:text-4xl text-ink-50 leading-none mb-1">
+              Hi, Arjun here!
+            </h2>
+            <div className="section-label">
+              Welcome to my world!
+            </div>
+          </div>
+        </motion.div>
+
+        {/* ── Main grid ── */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+
           {/* Left column: headline + CTAs */}
           <div className="lg:col-span-7">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="section-label mb-8"
-            >
-              Welcome to my World! 
-              {/* <span className="inline-block ml-3 w-2 h-2 rounded-full bg-signal-green animate-pulse" /> */}
-            </motion.div>
-
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -35,7 +63,7 @@ export function Hero() {
             >
               I build AI systems
               <br />
-              <span className="italic text-accent">that go live.</span>
+              <span className="italic text-accent">that ships.</span>
             </motion.h1>
 
             <motion.p
@@ -77,7 +105,7 @@ export function Hero() {
                 href={socialLinks.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2 font-mono text-sm uppercase tracking-[0.15em] text-ink-200 border border-ink-700 px-6 py-3 hover:border-accent hover:text-accent transition-all"
+                className="group inline-flex items-center gap-2 font-mono text-sm uppercase tracking-[0.15em] text-ink-200 border border-ink-700 px-4 py-3 hover:border-accent hover:text-accent transition-all"
               >
                 GitHub
                 <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -86,9 +114,18 @@ export function Hero() {
                 href={socialLinks.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2 font-mono text-sm uppercase tracking-[0.15em] text-ink-200 border border-ink-700 px-6 py-3 hover:border-accent hover:text-accent transition-all"
+                className="group inline-flex items-center gap-2 font-mono text-sm uppercase tracking-[0.15em] text-ink-200 border border-ink-700 px-4 py-3 hover:border-accent hover:text-accent transition-all"
               >
                 LinkedIn
+                <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              </a>
+              <a
+                href={socialLinks.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-2 font-mono text-sm uppercase tracking-[0.15em] text-ink-200 border border-ink-700 px-4 py-3 hover:border-accent hover:text-accent transition-all"
+              >
+                Email
                 <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </a>
             </motion.div>
@@ -104,7 +141,6 @@ export function Hero() {
             <div className="relative">
               <div className="absolute inset-0 bg-accent/10 blur-2xl" />
               <div className="relative bg-ink-900/80 backdrop-blur border border-ink-700 rounded-sm overflow-hidden">
-                {/* Terminal title bar */}
                 <div className="flex items-center justify-between px-4 py-2 border-b border-ink-800 bg-ink-900">
                   <div className="flex items-center gap-1.5">
                     <div className="w-3 h-3 rounded-full bg-ink-700" />
@@ -116,7 +152,6 @@ export function Hero() {
                   </div>
                 </div>
 
-                {/* Terminal body */}
                 <div className="p-5 font-mono text-[13px] leading-relaxed space-y-3">
                   <TerminalLine command="whoami" output="arjun_an" delay={0.8} />
                   <TerminalLine
@@ -155,7 +190,6 @@ export function Hero() {
               </div>
             </div>
 
-            {/* Location card */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}

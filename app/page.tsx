@@ -1,10 +1,10 @@
 import { Nav } from "@/components/Nav";
 import { Hero } from "@/components/Hero";
 import { StackMarquee } from "@/components/StackMarquee";
+import { About } from "@/components/About";
 import { ProjectsGrid } from "@/components/ProjectsGrid";
 import { Experience } from "@/components/Experience";
-import { Principles } from "@/components/Principles";
-import { About } from "@/components/About";
+import { BeyondCode } from "@/components/BeyondCode";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 import { AskPortfolio } from "@/components/AskPortfolio";
@@ -15,10 +15,10 @@ export default function Home() {
       <Nav />
       <Hero />
       <StackMarquee />
+      <About />
       <ProjectsGrid />
       <Experience />
-      <Principles />
-      <About />
+      <BeyondCode />
       <Contact />
       <Footer />
       <AskPortfolio />

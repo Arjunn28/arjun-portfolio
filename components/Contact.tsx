@@ -63,13 +63,15 @@ export function Contact() {
             >
               <div className="section-label mb-4">Contact</div>
               <h2 className="font-serif text-hero text-ink-50 text-balance mb-6">
-                Let&apos;s build <br />
-                <span className="italic text-accent">something real.</span>
+                Koffee with <br />
+                <span className="italic text-accent">Arjun?</span>
               </h2>
-              <p className="text-ink-300 text-base md:text-lg leading-relaxed mb-10 text-pretty">
-                Open to AI Engineer and full-stack SWE roles. Available for
-                interesting projects, thoughtful conversations and interview
-                loops starting now.
+              <p className="text-ink-300 text-base md:text-lg leading-relaxed mb-4 text-pretty">
+                Think we could have an interesting convo? HMU.
+              </p>
+              <p className="text-ink-400 text-sm md:text-base leading-relaxed mb-10 text-pretty">
+                Open to AI Engineer, SWE, Data roles, side projects,
+                hackathon teams or just a good rant!
               </p>
 
               <div className="space-y-4">
@@ -158,7 +160,7 @@ export function Contact() {
                   rows={5}
                   disabled={state === "loading"}
                   className="w-full bg-transparent border-b border-ink-700 focus:border-accent py-2 text-ink-100 placeholder-ink-600 outline-none transition-colors resize-none"
-                  placeholder="Tell me about the role, project or idea..."
+                  placeholder="Role, project, coffee plan, anything really..."
                 />
               </div>
 
@@ -167,7 +169,7 @@ export function Contact() {
                   {state === "success" && (
                     <span className="flex items-center gap-2 text-signal-green">
                       <Check className="w-4 h-4" />
-                      Message sent. I&apos;ll reply within 24 hours.
+                      Got it. I&apos;ll hit you back within 24 hours.
                     </span>
                   )}
                   {state === "error" && (

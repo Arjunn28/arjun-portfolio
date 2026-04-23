@@ -5,10 +5,10 @@ import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
+  { href: "/#about", label: "About" },
   { href: "/#work", label: "Work" },
   { href: "/#experience", label: "Experience" },
-  { href: "/#principles", label: "Principles" },
-  { href: "/#about", label: "About" },
+  { href: "/#beyond", label: "Beyond" },
   { href: "/#contact", label: "Contact" },
 ];
 
