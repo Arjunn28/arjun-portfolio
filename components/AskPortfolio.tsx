@@ -242,8 +242,8 @@ export function AskPortfolio() {
                 <div className="space-y-4">
                   <p className="text-ink-400 text-sm leading-relaxed">
                     Hey! Ask me anything about Arjun's projects, experience or
-                    background. I only know what's in this portfolio — but that's
-                    quite a bit. 😄
+                    background. I only know what's in this portfolio, but that's
+                    quite a bit :P
                   </p>
                   <div className="space-y-2">
                     <div className="font-mono text-[10px] uppercase tracking-[0.15em] text-ink-500 mb-2">
