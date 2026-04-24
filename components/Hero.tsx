@@ -63,7 +63,7 @@ export function Hero() {
             >
               I build AI systems
               <br />
-              <span className="italic text-accent">that ships.</span>
+              <span className="italic text-accent">that ship!</span>
             </motion.h1>
 
             <motion.p

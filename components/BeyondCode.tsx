@@ -14,30 +14,30 @@ type Achievement = {
 const achievements: Achievement[] = [
   {
     image: "/zone_trainer.png",
-    title: "Certified Zone Trainer",
-    org: "Junior Chamber International India",
-    body: "Trained 350+ students across the state in Public Speaking, Ethical Use of AI, Modern Personal Grooming and Study Techniques.",
+    title: "Certified Trainer",
+    org: "Training and Development | Junior Chamber International",
+    body: "Trained 350+ students & participants across India, focusing on public speaking, ethical use of AI, personal grooming, and effective study techniques. Known for simplifying complex ideas and creating highly engaging learning environments that drive real behavioral change.",
     year: "2025 — Present",
   },
   {
     image: "/president.png",
     title: "President, JCI Mysore Brindavan",
-    org: "Led 40-member team",
-    body: "Grew chapter membership by 8% and impacted 400+ lives through wheelchair donations, meal drives and blood donation camps.",
+    org: "Leadership | Community Building",
+    body: "Led a 40-member chapter and drove an 8% increase in membership! Spearheaded community programs that impacted 400+ individuals, including wheelchair donations, meal drives and blood donation camps. Aligned a diverse network of trainers, speakers, students and business owners to execute high-impact initiatives.",
     year: "2024",
   },
   {
     image: "/aspac.png",
-    title: "Asia-Pacific Conference",
-    org: "Represented JCI India",
-    body: "Attended the 2024 Asia-Pacific Conference in Cambodia as a JCI India representative.",
+    title: "Asia-Pacific Conference Delegate",
+    org: "International Exposure & Representation",
+    body: "Represented JCI India at the 2024 Asia-Pacific Conference in Cambodia as a national delegate. Participated in the General Assembly and engaged with National Presidents and global leaders, gaining exposure to international perspectives on leadership, collaboration and community development.",
     year: "Jun 2024",
   },
   {
     image: "/star_president.png",
     title: "Star Local President",
-    org: "JCI India Award",
-    body: "Recognised for exceptional local chapter leadership and community impact during the tenure.",
+    org: "International Recognition | Leadership Excellence",
+    body: "Awarded Star Local President 2024 for outstanding leadership and measurable community impact. Recognized for achieving 100% efficiency, delivering consistent results and executing strong communication and digital outreach strategies. Also led the JCI India football team to the semi-finals, demonstrating team leadership beyond formal roles.",
     year: "2024",
   },
 ];
@@ -50,10 +50,10 @@ export function BeyondCode() {
     >
       <div className="container-x">
         <div className="mb-12">
-          <div className="section-label mb-4">Beyond the code</div>
+          <div className="section-label mb-4">Beyond Engineering</div>
           <h2 className="font-serif text-hero text-ink-50 text-balance max-w-3xl">
-            Leadership, training{" "}
-            <span className="italic text-accent">and the stage!</span>
+            Leadership in{" "}
+            <span className="italic text-accent">action!</span>
           </h2>
         </div>
 

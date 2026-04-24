@@ -25,7 +25,8 @@ export function About() {
                 learner.
               </h2>
               <div className="font-mono text-xs text-ink-500 uppercase tracking-[0.15em] space-y-2 border-l-2 border-accent/40 pl-4">
-                <div>JSS STU · CGPA 9.47 / 10</div>
+                <div>Target · TCS</div>
+                <div>JSS STU · Grade: 9.47 / 10</div>
                 <div>B.E. Computer Science & Business Systems</div>
               </div>
             </motion.div>
@@ -39,7 +40,7 @@ export function About() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-ink-200 text-lg md:text-xl leading-relaxed text-pretty"
             >
-              I started as a Data Analyst at a Fortune 50 retailer, building
+              I started as a Data Analyst at a Fortune 500 retailer, building
               pipelines that moved billions of records a week. The work was
               analytical but the pattern I kept seeing was the same: humans in
               the loop, doing repetitive, low-creativity work that a well-designed
@@ -53,7 +54,7 @@ export function About() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-ink-300 text-base md:text-lg leading-relaxed text-pretty"
             >
-              So I started building agents. First at work: An AI agent deployed
+              So I started building agents. First at work: AI agents deployed
               across 167 business categories that replaced dependency on external
               category managers. Then on my own time: Sentinel AI, DocCypher,
               SnapIQ, RetailIQ Copilot. Live projects across AI
@@ -83,7 +84,7 @@ export function About() {
             >
               Outside work, I train young people across India in Modern
               Personal Grooming, Public Speaking and Ethical Use of AI as a
-              Certified Zone Trainer with Junior Chamber International. I led
+              Certified Trainer with Junior Chamber International. I led
               a 40-member JCI chapter as President and represented India at
               the 2024 Asia-Pacific Conference in Cambodia.
             </motion.p>
