@@ -1,6 +1,12 @@
 import type { Metadata, Viewport } from "next";
 import { Instrument_Serif, Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/react";
+
+<body className="relative">
+  <div className="relative z-10">{children}</div>
+  <Analytics />
+</body>
 
 const instrumentSerif = Instrument_Serif({
   weight: "400",
