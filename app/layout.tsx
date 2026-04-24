@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     title: "AI with Arjun",
     description:
       "Building agentic systems, RAG pipelines and multimodal applications. From Data Analyst to AI Engineer.",
-    url: "https://arjun-an.vercel.app",
+    url: "https://ai-with-arjun.vercel.app",
     siteName: "AI with Arjun",
     type: "website",
   },
