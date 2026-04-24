@@ -3,11 +3,6 @@ import { Instrument_Serif, Inter, JetBrains_Mono, Space_Grotesk } from "next/fon
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
 
-<body className="relative">
-  <div className="relative z-10">{children}</div>
-  <Analytics />
-</body>
-
 const instrumentSerif = Instrument_Serif({
   weight: "400",
   subsets: ["latin"],
@@ -87,6 +82,7 @@ export default function RootLayout({
     >
       <body className="relative">
         <div className="relative z-10">{children}</div>
+        <Analytics />
       </body>
     </html>
   );
