@@ -28,7 +28,7 @@ export const projects: Project[] = [
       "APScheduler",
       "React",
     ],
-    liveUrl: "https://retail-agent-self.vercel.app",
+    liveUrl: "https://sentinel-ai-agent.vercel.app",
     githubUrl: "https://github.com/Arjunn28/retail-agent",
     featured: true,
     metric: { label: "Peak memory", value: "<200MB" },
