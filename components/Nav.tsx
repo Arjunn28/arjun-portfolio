@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
@@ -27,11 +28,25 @@ export function Nav() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         scrolled
-          ? "backdrop-blur-lg bg-ink-950/70 border-b border-ink-800"
+          ? "backdrop-blur-lg bg-ink-950/80 border-b border-ink-800"
           : "bg-transparent"
       )}
     >
-      <div className="container-x flex items-center justify-between py-4">
+      {/* ARIA announcement strip — always visible */}
+      <div className="border-b border-ink-800/60 bg-ink-950/60 py-1.5 px-4">
+        <div className="flex items-center justify-center gap-2">
+          <Sparkles className="w-2.5 h-2.5 text-accent flex-shrink-0" />
+          <p className="font-mono text-[9px] md:text-[10px] uppercase tracking-[0.18em] text-ink-500 text-center">
+            This portfolio is itself an AI project —{" "}
+            <span className="text-accent font-medium">ARIA</span>{" "}
+            lives in the bottom right. Ask her anything.
+          </p>
+          <Sparkles className="w-2.5 h-2.5 text-accent flex-shrink-0" />
+        </div>
+      </div>
+
+      {/* Main nav row */}
+      <div className="container-x flex items-center justify-between py-3.5">
         <Link
           href="/"
           className="font-mono text-sm tracking-wider text-ink-100 hover:text-accent transition-colors"
@@ -76,6 +91,7 @@ export function Nav() {
         </button>
       </div>
 
+      {/* Mobile menu */}
       <div id="mobile-menu" className="hidden md:hidden border-t border-ink-800 bg-ink-950">
         <div className="container-x py-4 flex flex-col gap-4">
           {navLinks.map((link) => (

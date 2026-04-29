@@ -1,5 +1,4 @@
 import { Nav } from "@/components/Nav";
-import { AIBanner } from "@/components/AIBanner";
 import { Hero } from "@/components/Hero";
 import { StackMarquee } from "@/components/StackMarquee";
 import { About } from "@/components/About";
@@ -14,7 +13,6 @@ export default function Home() {
   return (
     <main>
       <Nav />
-      <AIBanner />
       <Hero />
       <StackMarquee />
       <About />
