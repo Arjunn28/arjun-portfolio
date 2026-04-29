@@ -37,7 +37,7 @@ export function Nav() {
         <div className="flex items-center justify-center gap-2">
           <Sparkles className="w-2.5 h-2.5 text-accent flex-shrink-0" />
           <p className="font-mono text-[9px] md:text-[10px] uppercase tracking-[0.18em] text-ink-500 text-center">
-            This portfolio is itself an AI project —{" "}
+            This portfolio is itself an AI project!{" "}
             <span className="text-accent font-medium">ARIA</span>{" "}
             lives in the bottom right. Ask her anything.
           </p>
