@@ -9,10 +9,14 @@ const BACKEND_URL =
   "https://ask-arjun-backend.onrender.com";
 
 const SUGGESTED_QUESTIONS = [
-  "What is Sentinel AI?",
-  "How does DocCypher work?",
+  "What is Sentinel AI and how does it work?",
+  "How does DocCypher handle hybrid retrieval?",
   "What's Arjun's tech stack?",
   "Tell me about his experience at Target",
+  "Can he handle AI at scale?",
+  "What leadership roles has he held?",
+  "What makes him stand out as a candidate?",
+  "Is he open to new opportunities?",
 ];
 
 type Message = {
@@ -20,6 +24,30 @@ type Message = {
   content: string;
   streaming?: boolean;
 };
+
+// Lightweight markdown renderer — handles bold, inline code, line breaks
+function renderMarkdown(text: string): React.ReactNode {
+  const lines = text.split("\n");
+  return lines.map((line, i) => {
+    // Split on bold markers and inline code
+    const parts = line.split(/(\*\*[^*]+\*\*|`[^`]+`)/g);
+    const rendered = parts.map((part, j) => {
+      if (part.startsWith("**") && part.endsWith("**")) {
+        return <strong key={j} className="text-ink-100 font-semibold">{part.slice(2, -2)}</strong>;
+      }
+      if (part.startsWith("`") && part.endsWith("`")) {
+        return <code key={j} className="font-mono text-[11px] bg-ink-800 px-1 py-0.5 rounded text-accent">{part.slice(1, -1)}</code>;
+      }
+      return part;
+    });
+    return (
+      <span key={i}>
+        {rendered}
+        {i < lines.length - 1 && line.length > 0 && <br />}
+      </span>
+    );
+  });
+}
 
 export function AskPortfolio() {
   const [open, setOpen] = useState(false);
@@ -32,17 +60,14 @@ export function AskPortfolio() {
   const inputRef = useRef<HTMLInputElement>(null);
   const wakeTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  // Scroll to bottom when messages update
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
-  // Focus input when opened
   useEffect(() => {
     if (open) setTimeout(() => inputRef.current?.focus(), 300);
   }, [open]);
 
-  // Cleanup wake timer on unmount
   useEffect(() => {
     return () => {
       if (wakeTimerRef.current) clearInterval(wakeTimerRef.current);
@@ -54,7 +79,6 @@ export function AskPortfolio() {
     setWakeProgress(0);
     let progress = 0;
     wakeTimerRef.current = setInterval(() => {
-      // Slow progress that never quite reaches 100 until done
       progress += progress < 70 ? 2 : 0.3;
       if (progress >= 99) progress = 99;
       setWakeProgress(Math.round(progress));
@@ -81,7 +105,6 @@ export function AskPortfolio() {
     setInput("");
     setLoading(true);
 
-    // Check if backend is cold by hitting health first
     let isCold = false;
     try {
       const healthRes = await fetch(`${BACKEND_URL}/health`, {
@@ -90,12 +113,11 @@ export function AskPortfolio() {
       const health = await healthRes.json();
       isCold = !health.indexed;
     } catch {
-      isCold = true; // Assume cold if health check times out
+      isCold = true;
     }
 
     if (isCold) startWakeProgress();
 
-    // Add placeholder assistant message for streaming
     setMessages((prev) => [
       ...prev,
       { role: "assistant", content: "", streaming: true },
@@ -115,7 +137,6 @@ export function AskPortfolio() {
 
       stopWakeProgress();
 
-      // Stream the response into the last message
       const reader = res.body?.getReader();
       const decoder = new TextDecoder();
       let accumulated = "";
@@ -137,7 +158,6 @@ export function AskPortfolio() {
         }
       }
 
-      // Mark streaming complete
       setMessages((prev) => {
         const updated = [...prev];
         updated[updated.length - 1] = {
@@ -147,14 +167,14 @@ export function AskPortfolio() {
         };
         return updated;
       });
-    } catch (err) {
+    } catch {
       stopWakeProgress();
       setMessages((prev) => {
         const updated = [...prev];
         updated[updated.length - 1] = {
           role: "assistant",
           content:
-            "Looks like my backend is taking a nap. Try again in 30 seconds — or reach out to Arjun directly through the contact form!",
+            "ARIA seems to be napping. Try again in 30 seconds — or reach out to Arjun directly through the contact form!",
           streaming: false,
         };
         return updated;
@@ -173,7 +193,6 @@ export function AskPortfolio() {
 
   return (
     <>
-      {/* Chat panel */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -181,7 +200,7 @@ export function AskPortfolio() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
-            className="fixed bottom-24 right-4 md:right-6 z-50 w-[calc(100vw-2rem)] sm:w-[400px] max-h-[600px] flex flex-col border border-ink-700 bg-ink-950/95 backdrop-blur-xl shadow-2xl"
+            className="fixed bottom-24 right-4 md:right-6 z-50 w-[calc(100vw-2rem)] sm:w-[420px] max-h-[600px] flex flex-col border border-ink-700 bg-ink-950/95 backdrop-blur-xl shadow-2xl"
           >
             {/* Header */}
             <div className="flex items-center justify-between px-4 py-3 border-b border-ink-800 flex-shrink-0">
@@ -189,10 +208,10 @@ export function AskPortfolio() {
                 <Sparkles className="w-4 h-4 text-accent" />
                 <div>
                   <div className="font-mono text-xs uppercase tracking-[0.15em] text-ink-200">
-                    Ask my portfolio
+                    ARIA
                   </div>
                   <div className="font-mono text-[10px] text-ink-500">
-                    Powered by Llama 3.3 · Groq
+                    Arjun&apos;s Retrieval Intelligence Assistant · Groq
                   </div>
                 </div>
               </div>
@@ -218,9 +237,7 @@ export function AskPortfolio() {
                     <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-ink-400">
                       Waking up...
                     </span>
-                    <span className="font-mono text-[10px] text-ink-500">
-                      ~30s
-                    </span>
+                    <span className="font-mono text-[10px] text-ink-500">~30s</span>
                   </div>
                   <div className="w-full h-1 bg-ink-800 rounded-full overflow-hidden">
                     <motion.div
@@ -241,9 +258,9 @@ export function AskPortfolio() {
               {messages.length === 0 && (
                 <div className="space-y-4">
                   <p className="text-ink-400 text-sm leading-relaxed">
-                    Hey! Ask me anything about Arjun's projects, experience or
-                    background. I only know what's in this portfolio, but that's
-                    quite a bit :P
+                    Hey! I&apos;m <span className="text-accent font-medium">ARIA</span> — Arjun&apos;s Retrieval Intelligence Assistant.
+                    Ask me anything about his projects, experience or background.
+                    I only know what&apos;s in this portfolio, but that&apos;s quite a bit. 😄
                   </p>
                   <div className="space-y-2">
                     <div className="font-mono text-[10px] uppercase tracking-[0.15em] text-ink-500 mb-2">
@@ -265,24 +282,29 @@ export function AskPortfolio() {
               {messages.map((msg, i) => (
                 <div
                   key={i}
-                  className={`flex ${
-                    msg.role === "user" ? "justify-end" : "justify-start"
-                  }`}
+                  className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
                 >
+                  {msg.role === "assistant" && (
+                    <div className="flex-shrink-0 w-5 h-5 rounded-full bg-accent/20 border border-accent/40 flex items-center justify-center mr-2 mt-0.5">
+                      <Sparkles className="w-2.5 h-2.5 text-accent" />
+                    </div>
+                  )}
                   <div
                     className={`max-w-[85%] text-sm leading-relaxed px-3.5 py-2.5 ${
                       msg.role === "user"
                         ? "bg-accent text-ink-950 font-medium"
-                        : "bg-ink-900 text-ink-200 border border-ink-800"
+                        : "bg-ink-900 text-ink-300 border border-ink-800"
                     }`}
                   >
-                    {msg.content || (
-                      <span className="flex items-center gap-1.5 text-ink-400">
-                        <span className="w-1.5 h-1.5 rounded-full bg-ink-400 animate-bounce [animation-delay:0ms]" />
-                        <span className="w-1.5 h-1.5 rounded-full bg-ink-400 animate-bounce [animation-delay:150ms]" />
-                        <span className="w-1.5 h-1.5 rounded-full bg-ink-400 animate-bounce [animation-delay:300ms]" />
-                      </span>
-                    )}
+                    {msg.role === "assistant" && msg.content
+                      ? renderMarkdown(msg.content)
+                      : msg.content || (
+                          <span className="flex items-center gap-1.5 text-ink-400">
+                            <span className="w-1.5 h-1.5 rounded-full bg-ink-400 animate-bounce [animation-delay:0ms]" />
+                            <span className="w-1.5 h-1.5 rounded-full bg-ink-400 animate-bounce [animation-delay:150ms]" />
+                            <span className="w-1.5 h-1.5 rounded-full bg-ink-400 animate-bounce [animation-delay:300ms]" />
+                          </span>
+                        )}
                     {msg.streaming && msg.content && (
                       <span className="inline-block w-0.5 h-3.5 bg-accent ml-0.5 animate-blink align-middle" />
                     )}
@@ -300,7 +322,7 @@ export function AskPortfolio() {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={handleKeyDown}
-                placeholder="Ask anything about Arjun..."
+                placeholder="Ask ARIA anything about Arjun..."
                 disabled={loading}
                 className="flex-1 bg-transparent text-sm text-ink-100 placeholder-ink-600 outline-none disabled:opacity-50"
               />
@@ -324,15 +346,15 @@ export function AskPortfolio() {
         transition={{ delay: 1.5, duration: 0.4 }}
         onClick={() => setOpen(!open)}
         className="fixed bottom-5 right-4 md:right-6 z-50 inline-flex items-center gap-2 bg-accent text-ink-950 px-4 py-3 shadow-lg hover:bg-accent-bright transition-all"
-        aria-label="Open portfolio assistant"
+        aria-label="Open ARIA portfolio assistant"
       >
         {open ? (
           <X className="w-4 h-4" />
         ) : (
           <>
-            <MessageCircle className="w-4 h-4" />
+            <Sparkles className="w-4 h-4" />
             <span className="font-mono text-xs uppercase tracking-[0.15em]">
-              Ask
+              Ask ARIA
             </span>
           </>
         )}
