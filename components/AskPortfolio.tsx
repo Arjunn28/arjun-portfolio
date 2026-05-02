@@ -258,9 +258,9 @@ export function AskPortfolio() {
               {messages.length === 0 && (
                 <div className="space-y-4">
                   <p className="text-ink-400 text-sm leading-relaxed">
-                    Hey! I&apos;m <span className="text-accent font-medium">ARIA</span> — Arjun&apos;s Retrieval Intelligence Assistant.
+                    Hey, I&apos;m <span className="text-accent font-medium">ARIA!</span> Arjun&apos;s Retrieval Intelligence Assistant.
                     Ask me anything about his projects, experience or background.
-                    I only know what&apos;s in this portfolio, but that&apos;s quite a bit. 😄
+                    I only know what&apos;s in this portfolio, but that&apos;s quite a bit 😄
                   </p>
                   <div className="space-y-2">
                     <div className="font-mono text-[10px] uppercase tracking-[0.15em] text-ink-500 mb-2">
