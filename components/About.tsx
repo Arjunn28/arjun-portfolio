@@ -29,7 +29,8 @@ export function About() {
                 <div>UT Austin · MSIS 2028</div>
                 <div>AI, Data Science &amp; Analytics</div>
                 <div>Ex-Target · Ex-TCS</div>
-                <div>Computer Science & Business Systems Engineer</div>
+                <div>JSS Science & Technology University</div>
+                <div>Bachelor of Engineering in Computer Science & Business Systems</div>
               </div>
             </motion.div>
           </div>
