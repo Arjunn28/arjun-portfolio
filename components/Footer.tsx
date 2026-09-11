@@ -16,8 +16,7 @@ export function Footer() {
               <span className="text-accent">◆</span> ai_with_arjun
             </Link>
             <p className="text-ink-400 text-sm mt-3 leading-relaxed max-w-xs">
-              Data Analyst moving into AI Engineering. Building agents,
-              retrieval systems and vision pipelines. 
+              Kudos on making it to the end! 
             </p>
           </div>
 
