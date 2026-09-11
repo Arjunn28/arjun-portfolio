@@ -70,8 +70,7 @@ export function Contact() {
                 Think we could have an interesting convo? HMU.
               </p>
               <p className="text-ink-400 text-sm md:text-base leading-relaxed mb-10 text-pretty">
-                Open to AI Engineer, SWE, Data roles, side projects,
-                hackathon teams or just a good rant!
+                Open to hackathon teams or just a good rant!
               </p>
 
               <div className="space-y-4">
