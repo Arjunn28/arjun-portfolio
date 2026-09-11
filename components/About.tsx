@@ -25,9 +25,11 @@ export function About() {
                 learner.
               </h2>
               <div className="font-mono text-xs text-ink-500 uppercase tracking-[0.15em] space-y-2 border-l-2 border-accent/40 pl-4">
-                <div>Target · TCS</div>
-                <div>JSS STU · Grade: 9.47 / 10</div>
-                <div>B.E. Computer Science & Business Systems</div>
+                <div>UT Austin · MSIS 2028</div>
+                <div>AI, Data Science &amp; Analytics</div>
+                <div>Austin, TX · USA</div>
+                <div>Ex-Target · Ex-TCS</div>
+                <div>Computer Science & Business Systems Engineer</div>
               </div>
             </motion.div>
           </div>
@@ -40,7 +42,7 @@ export function About() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-ink-200 text-lg md:text-xl leading-relaxed text-pretty"
             >
-              I started as a Data Analyst at a Fortune 500 retailer, building
+              I spent three years as a Data Analyst at a Fortune 500 retailer, building
               pipelines that moved billions of records a week. The work was
               analytical but the pattern I kept seeing was the same: humans in
               the loop, doing repetitive, low-creativity work that a well-designed
@@ -96,7 +98,7 @@ export function About() {
               transition={{ duration: 0.6, delay: 0.5 }}
               className="pt-8 mt-8 border-t border-ink-800 grid grid-cols-2 md:grid-cols-4 gap-6"
             >
-              <Stat label="Years in Prod" value="3" />
+              <Stat label="Years in industry" value="3" />
               <Stat label="Projects deployed" value="4+" />
               <Stat label="Records at scale" value="2B+" />
               <Stat label="Categories automated" value="167" />
