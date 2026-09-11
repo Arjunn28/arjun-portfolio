@@ -19,12 +19,12 @@ export function About() {
               className="lg:sticky lg:top-32"
             >
               <div className="section-label mb-4">About</div>
-              <h2 className="font-serif text-hero text-ink-50 text-balance mb-8">
-                AI Researcher, <br />
-                <span className="italic text-accent">builder,</span> <br />
-                <span className="italic text-accent">engineer,</span> <br />
-                learner.
-              </h2>
+              <h2 className="font-serif text-[clamp(1.75rem,3.4vw,2.75rem)] leading-[1.05] tracking-tight text-ink-50 text-balance mb-8">
+                  AI Researcher, <br />
+                  <span className="italic text-accent">builder,</span> <br />
+                  <span className="italic text-accent">engineer,</span> <br />
+                  learner.
+                </h2>
               <div className="font-mono text-xs text-ink-500 uppercase tracking-[0.15em] space-y-2 border-l-2 border-accent/40 pl-4">
                 <div>UT Austin · MSIS 2028</div>
                 <div>AI, Data Science &amp; Analytics</div>
