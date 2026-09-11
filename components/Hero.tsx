@@ -84,8 +84,8 @@ export function Hero() {
               className="text-ink-400 text-base max-w-xl leading-relaxed mb-10 text-pretty"
             >
               Three years of production analytics inside a Fortune 500 retailer,
-              now channelled into building agents, retrieval systems and vision
-              pipelines on my own terms.
+              now pursuing a Master&apos;s at UT Austin and building agents,
+              retrieval systems and vision pipelines on my own terms.
             </motion.p>
 
             <motion.div
@@ -196,7 +196,8 @@ export function Hero() {
               transition={{ delay: 1, duration: 0.6 }}
               className="mt-4 flex items-center justify-between text-[11px] font-mono uppercase tracking-[0.15em] text-ink-500"
             >
-              <span>Bengaluru · IST</span>
+              {/* <span>Bengaluru · IST</span> */}
+              <span>Austin, TX · CST</span>
               <span className="flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-signal-green" />
                 v1.0.0
