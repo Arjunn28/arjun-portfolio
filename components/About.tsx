@@ -57,10 +57,9 @@ export function About() {
               className="text-ink-300 text-base md:text-lg leading-relaxed text-pretty"
             >
               So I started building agents. First at work: AI agents deployed
-              across 167 business categories that replaced dependency on external
-              category managers. Then on my own time: Sentinel AI, DocCypher,
-              SnapIQ, RetailIQ Copilot. Live projects across AI
-              modalities in three months.
+              across 167 business categories that off-loaded major dependency on external
+              category managers. Then on my own time: Sentinel AI, DocCypher & much more. 
+              Live projects across AI modalities.
             </motion.p>
 
             <motion.p
@@ -73,8 +72,7 @@ export function About() {
               What I care about: decoupling LLM reasoning from arithmetic.
               Hybrid retrieval over naïve vectors. Structured outputs with
               Pydantic validation at every boundary. Evals as the real moat.
-              Systems that run unattended at 3am, not demos that
-              work once on stage.
+              Systems that run unattended at 3am.
             </motion.p>
 
             <motion.p
@@ -84,10 +82,10 @@ export function About() {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="text-ink-300 text-base md:text-lg leading-relaxed text-pretty"
             >
-              Outside work, I train young people across India in Modern
+              Outside work, I train young people in Modern
               Personal Grooming, Public Speaking and Ethical Use of AI as a
               Certified Trainer with Junior Chamber International. I led
-              a 40-member JCI chapter as President and represented India at
+              a 40-member team as President and represented my country, India,  at
               the 2024 Asia-Pacific Conference in Cambodia.
             </motion.p>
 
