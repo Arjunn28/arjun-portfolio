@@ -20,14 +20,14 @@ export function About() {
             >
               <div className="section-label mb-4">About</div>
               <h2 className="font-serif text-hero text-ink-50 text-balance mb-8">
-                Analyst, <br />
+                AI Researcher, <br />
                 <span className="italic text-accent">builder,</span> <br />
+                <span className="italic text-accent">engineer,</span> <br />
                 learner.
               </h2>
               <div className="font-mono text-xs text-ink-500 uppercase tracking-[0.15em] space-y-2 border-l-2 border-accent/40 pl-4">
                 <div>UT Austin · MSIS 2028</div>
                 <div>AI, Data Science &amp; Analytics</div>
-                <div>Austin, TX · USA</div>
                 <div>Ex-Target · Ex-TCS</div>
                 <div>Computer Science & Business Systems Engineer</div>
               </div>
