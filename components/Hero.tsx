@@ -44,9 +44,9 @@ export function Hero() {
             <h2 className="font-serif text-3xl md:text-4xl text-ink-50 leading-none mb-1">
               Hi, Arjun here!
             </h2>
-            <div className="section-label">
+            {/* <div className="section-label">
               Welcome to my world!
-            </div>
+            </div> */}
           </div>
         </motion.div>
 
