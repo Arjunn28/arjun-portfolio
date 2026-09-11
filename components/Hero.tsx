@@ -72,9 +72,9 @@ export function Hero() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-ink-300 text-lg md:text-xl max-w-xl leading-relaxed mb-4 text-pretty"
             >
-              Data Analyst moving into AI Engineering. I design and deploy
-              agentic systems, RAG pipelines and multimodal applications
-              from architecture to production.
+              I work at the intersection of AI research and engineering, turning
+              ideas into systems that run in production. Agents, retrieval, vision,
+              orchestration, whatever the problem calls for.
             </motion.p>
 
             <motion.p
@@ -83,9 +83,9 @@ export function Hero() {
               transition={{ duration: 0.8, delay: 0.5 }}
               className="text-ink-400 text-base max-w-xl leading-relaxed mb-10 text-pretty"
             >
-              Three years of production analytics inside a Fortune 500 retailer,
-              now pursuing a Master&apos;s at UT Austin and building agents,
-              retrieval systems and vision pipelines on my own terms.
+              Three years building AI at scale inside a Fortune 500 retailer, now
+              deepening the research side through graduate work and teaching.
+              Still building, still shipping.
             </motion.p>
 
             <motion.div
