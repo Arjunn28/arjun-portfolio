@@ -31,7 +31,7 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   title: "AI with Arjun",
   description:
-    "Data Analyst transitioning into AI Engineering. Building agentic systems, RAG pipelines and multimodal applications — with 3 years of production analytics experience at a Fortune 50 retailer.",
+    "MSIS student at UT Austin. Building agentic systems, RAG pipelines and multimodal applications, with 3 years of production analytics at a Fortune 500 retailer.",
   keywords: [
     "AI Engineer",
     "LLM",
