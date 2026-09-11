@@ -159,7 +159,7 @@ export function Contact() {
                   rows={5}
                   disabled={state === "loading"}
                   className="w-full bg-transparent border-b border-ink-700 focus:border-accent py-2 text-ink-100 placeholder-ink-600 outline-none transition-colors resize-none"
-                  placeholder="Role, project, coffee plan, anything really..."
+                  placeholder="Anything really..."
                 />
               </div>
 
@@ -168,7 +168,7 @@ export function Contact() {
                   {state === "success" && (
                     <span className="flex items-center gap-2 text-signal-green">
                       <Check className="w-4 h-4" />
-                      Got it. I&apos;ll hit you back within 24 hours.
+                      Got it. I&apos;ll hit you back soon!
                     </span>
                   )}
                   {state === "error" && (
