@@ -12,20 +12,45 @@ type Role = {
   current?: boolean;
 };
 
+const education: Role[] = [
+  {
+    role: "M.S. Information Studies · AI, Data Science and Analytics",
+    company: "The University of Texas at Austin",
+    period: "Aug 2026 — May 2028",
+    location: "Austin, TX",
+    logo: "/ut_austin.png",
+    current: true,
+  },
+  {
+    role: "B.E. Computer Science and Business Systems · 9.47 / 10 (3.8/4.0 US Equivalent)",
+    company: "JSS Science and Technology University",
+    period: "Jul 2019 — Aug 2023",
+    location: "Mysuru, India",
+    logo: "/jss.png",
+  },
+];
+
 const workRoles: Role[] = [
+  {
+    role: "Teaching Assistant · Innovation and Entrepreneurship Honours",
+    company: "McCombs School of Business, UT Austin",
+    period: "Aug 2026 — Present",
+    location: "Austin, TX",
+    logo: "/mccombs.png",
+    current: true,
+  },
   {
     role: "Data Analyst",
     company: "Target Corporation",
-    period: "Aug 2023 — Present",
-    location: "Bengaluru",
+    period: "Aug 2023 — Jul 2026",
+    location: "Bengaluru, India",
     logo: "/target.png",
-    current: true,
   },
   {
     role: "AI/ML Intern",
     company: "Tata Consultancy Services",
     period: "Jun 2022 — Sep 2022",
-    location: "Bengaluru",
+    location: "Bengaluru, India",
     logo: "/tcs.png",
   },
 ];
@@ -33,7 +58,7 @@ const workRoles: Role[] = [
 const leadershipRoles: Role[] = [
   {
     role: "Certified Zone Trainer",
-    company: "JCI India",
+    company: "JCI India · Zone",
     period: "2025 — Present",
     location: "India",
     logo: "/jci.png",
@@ -50,9 +75,8 @@ const leadershipRoles: Role[] = [
 
 function RoleCard({ role }: { role: Role }) {
   return (
-    <div className="group border border-ink-800 bg-ink-900/30 hover:border-accent/30 hover:bg-ink-900/50 transition-all duration-300 p-6 md:p-7">
+    <div className="group border border-ink-800 bg-ink-900/30 hover:border-accent/30 hover:bg-ink-900/50 transition-all duration-300 p-6 md:p-7 h-full">
       <div className="flex items-start gap-5">
-        {/* Logo */}
         <div className="relative flex-shrink-0 w-14 h-14 md:w-16 md:h-16 bg-white rounded-sm overflow-hidden flex items-center justify-center p-2">
           <Image
             src={role.logo}
@@ -66,7 +90,6 @@ function RoleCard({ role }: { role: Role }) {
           />
         </div>
 
-        {/* Details */}
         <div className="flex-1 min-w-0">
           <div className="flex items-start justify-between gap-2 mb-1.5">
             <h3 className="font-serif text-xl md:text-2xl text-ink-50 leading-tight">
@@ -93,6 +116,24 @@ function RoleCard({ role }: { role: Role }) {
   );
 }
 
+function RoleGrid({ roles }: { roles: Role[] }) {
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+      {roles.map((role, i) => (
+        <motion.div
+          key={`${role.company}-${role.period}`}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.5, delay: i * 0.1 }}
+        >
+          <RoleCard role={role} />
+        </motion.div>
+      ))}
+    </div>
+  );
+}
+
 export function Experience() {
   return (
     <section
@@ -100,29 +141,25 @@ export function Experience() {
       className="py-24 md:py-28 scroll-mt-20 border-t border-ink-800"
     >
       <div className="container-x">
-        {/* Work header */}
+        {/* Education */}
         <div className="mb-12">
+          <div className="section-label mb-4">Education</div>
+          <h2 className="font-serif text-hero text-ink-50 text-balance max-w-3xl">
+            Where I&apos;m{" "}
+            <span className="italic text-accent">learning the craft.</span>
+          </h2>
+        </div>
+        <RoleGrid roles={education} />
+
+        {/* Work */}
+        <div className="mt-20 mb-12">
           <div className="section-label mb-4">Experience</div>
           <h2 className="font-serif text-hero text-ink-50 text-balance max-w-3xl">
             Where I&apos;ve{" "}
             <span className="italic text-accent">done the work.</span>
           </h2>
         </div>
-
-        {/* Work roles */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-          {workRoles.map((role, i) => (
-            <motion.div
-              key={role.company}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-            >
-              <RoleCard role={role} />
-            </motion.div>
-          ))}
-        </div>
+        <RoleGrid roles={workRoles} />
 
         <motion.div
           initial={{ opacity: 0 }}
@@ -141,7 +178,7 @@ export function Experience() {
           </a>
         </motion.div>
 
-        {/* Leadership roles */}
+        {/* Leadership */}
         <div className="mt-20 mb-12">
           <div className="section-label mb-4">Leadership</div>
           <h2 className="font-serif text-hero text-ink-50 text-balance max-w-3xl">
@@ -149,20 +186,7 @@ export function Experience() {
             <span className="italic text-accent">led people.</span>
           </h2>
         </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-          {leadershipRoles.map((role, i) => (
-            <motion.div
-              key={`${role.company}-${role.period}`}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-            >
-              <RoleCard role={role} />
-            </motion.div>
-          ))}
-        </div>
+        <RoleGrid roles={leadershipRoles} />
       </div>
     </section>
   );
