@@ -33,18 +33,18 @@ export function Nav() {
       )}
     >
             {/* ARIA announcement strip — always visible */}
-      <div className="border-b border-ink-800/60 bg-ink-950/60 py-2 px-4">
+      <div className="border-b border-ink-800/60 bg-ink-950/60 py-1.5 px-4">
         <div className="flex items-center justify-center gap-2">
           <Sparkles className="w-2.5 h-2.5 text-accent flex-shrink-0" />
-          <p className="font-mono text-[9px] md:text-[10px] uppercase tracking-[0.18em] text-ink-500 text-center leading-relaxed">
+          <p className="font-mono text-[9px] md:text-[10px] uppercase tracking-[0.16em] text-ink-500 text-center">
             Iron Man has JARVIS. I built my own{" "}
-            <span className="text-accent font-medium">ARIA</span>.
-            <br className="hidden sm:block" />{" "}
-            This portfolio is an AI project. She&apos;s in the bottom right, ask her anything.
+            <span className="text-accent font-medium">ARIA</span>. This portfolio
+            is an AI project. She&apos;s in the bottom right, ask her anything.
           </p>
           <Sparkles className="w-2.5 h-2.5 text-accent flex-shrink-0" />
         </div>
       </div>
+      
       {/* Main nav row */}
       <div className="container-x flex items-center justify-between py-3.5">
         <Link
