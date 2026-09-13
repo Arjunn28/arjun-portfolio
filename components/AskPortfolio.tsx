@@ -9,6 +9,8 @@ const BACKEND_URL =
   "https://ask-arjun-backend.onrender.com";
 
 const SUGGESTED_QUESTIONS = [
+  "What is Arjun's current education?",
+  "Does he have work experience?",
   "What is Sentinel AI and how does it work?",
   "How does DocCypher handle hybrid retrieval?",
   "What's Arjun's tech stack?",
@@ -16,7 +18,6 @@ const SUGGESTED_QUESTIONS = [
   "Can he handle AI at scale?",
   "What leadership roles has he held?",
   "What makes him stand out as a candidate?",
-  "Is he open to new opportunities?",
 ];
 
 type Message = {
