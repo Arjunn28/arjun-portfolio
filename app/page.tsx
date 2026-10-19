@@ -4,6 +4,7 @@ import { StackMarquee } from "@/components/StackMarquee";
 import { About } from "@/components/About";
 import { ProjectsGrid } from "@/components/ProjectsGrid";
 import { Experience } from "@/components/Experience";
+import { Talks } from "@/components/Talks";
 import { BeyondCode } from "@/components/BeyondCode";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
@@ -18,6 +19,7 @@ export default function Home() {
       <About />
       <ProjectsGrid />
       <Experience />
+      <Talks />
       <BeyondCode />
       <Contact />
       <Footer />
