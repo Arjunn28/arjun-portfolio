@@ -43,7 +43,7 @@ export const projects: Project[] = [
     stack: [
       "Python",
       "FastAPI",
-      "Llama 3.3 70B",
+      "GPT-OSS 120B",
       "ChromaDB",
       "BM25",
       "React",
