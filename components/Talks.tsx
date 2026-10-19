@@ -43,6 +43,7 @@ const talks: Talk[] = [
     date: "Oct 2026",
     focus: "center 55%",
     links: [
+      { label: "Learn more", href: "/talks/genai-workshop", primary: true },
       {
         label: "LinkedIn post",
         href: "https://www.linkedin.com/posts/arjun-an_utaustin-mccombs-genai-ugcPost-7517404055732699136-k1na/",
