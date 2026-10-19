@@ -20,14 +20,31 @@ type Talk = {
 // Newest first. Add the Gen-AI workshop (and future talks or posters) here.
 const talks: Talk[] = [
   {
+    image: "/genai_workshop.jpg",
+    title: "Gen-AI Workshop, MAN 327H",
+    org: "Teaching Assistant | McCombs School of Business, UT Austin",
+    body: "Designed and ran a hands-on Gen-AI workshop for 115 Business Honors students across three sections of Innovation and Entrepreneurship. Students built their venture's web page with AI, hosted it on Netlify and measured real user behavior with Microsoft Clarity, launching live in class. The core lesson: watch what users repeat, then build that feature.",
+    date: "Oct 2026",
+    links: [
+      {
+        label: "LinkedIn post",
+        href: "https://www.linkedin.com/posts/arjun-an_utaustin-mccombs-genai-ugcPost-7517404055732699136-k1na/",
+      },
+    ],
+  },
+  {
     image: "/ifml_poster.jpg",
-    title: "Poster Presenter, IFML Research Symposium 2026",
-    org: "NSF AI Institute for Foundations of Machine Learning | UT Austin",
+    title: "IFML Research Symposium 2026",
+    org: "Poster Presenter | NSF AI Institute for Foundations of ML, UT Austin",
     body: "Presented DocCypher, my hybrid retrieval system for grounded document Q&A, at UT Austin's 2026 symposium on \"Achieving Superintelligence: What does it take?\". Walked researchers through how keyword and semantic search are fused so every answer cites its source page, all inside a 200 MB footprint. My first research poster, and its questions are now shaping the next version.",
     date: "Oct 2026",
     links: [
       { label: "Poster page", href: "/ifml" },
       { label: "Live demo", href: "https://doc-cypher.vercel.app" },
+      {
+        label: "LinkedIn post",
+        href: "https://www.linkedin.com/posts/arjun-an_machinelearning-artificialintelligence-airesearch-ugcPost-7512219412347650048-oKhH/",
+      },
     ],
   },
 ];
