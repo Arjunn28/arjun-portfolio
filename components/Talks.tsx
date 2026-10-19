@@ -15,23 +15,11 @@ type Talk = {
   body: string;
   date: string;
   links?: TalkLink[];
+  focus?: string; // CSS object-position for the photo crop
 };
 
-// Newest first. Add the Gen-AI workshop (and future talks or posters) here.
+// Display order. Add future talks or posters here.
 const talks: Talk[] = [
-  {
-    image: "/genai_workshop.jpg",
-    title: "Gen-AI Workshop, MAN 327H",
-    org: "Teaching Assistant | McCombs School of Business, UT Austin",
-    body: "Designed and ran a hands-on Gen-AI workshop for 115 Business Honors students across three sections of Innovation and Entrepreneurship. Students built their venture's web page with AI, hosted it on Netlify and measured real user behavior with Microsoft Clarity, launching live in class. The core lesson: watch what users repeat, then build that feature.",
-    date: "Oct 2026",
-    links: [
-      {
-        label: "LinkedIn post",
-        href: "https://www.linkedin.com/posts/arjun-an_utaustin-mccombs-genai-ugcPost-7517404055732699136-k1na/",
-      },
-    ],
-  },
   {
     image: "/ifml_poster.jpg",
     title: "IFML Research Symposium 2026",
@@ -44,6 +32,20 @@ const talks: Talk[] = [
       {
         label: "LinkedIn post",
         href: "https://www.linkedin.com/posts/arjun-an_machinelearning-artificialintelligence-airesearch-ugcPost-7512219412347650048-oKhH/",
+      },
+    ],
+  },
+  {
+    image: "/genai_workshop.jpg",
+    title: "Gen-AI Workshop, MAN 327H",
+    org: "Teaching Assistant | McCombs School of Business, UT Austin",
+    body: "Designed and ran a hands-on Gen-AI workshop for 115 Business Honors students across three sections of Innovation and Entrepreneurship. Students built their venture's web page with AI, hosted it on Netlify and measured real user behavior with Microsoft Clarity, launching live in class. The core lesson: watch what users repeat, then build that feature.",
+    date: "Oct 2026",
+    focus: "center 55%",
+    links: [
+      {
+        label: "LinkedIn post",
+        href: "https://www.linkedin.com/posts/arjun-an_utaustin-mccombs-genai-ugcPost-7517404055732699136-k1na/",
       },
     ],
   },
@@ -128,7 +130,8 @@ export function Talks() {
                   src={t.image}
                   alt={`${t.title} photo`}
                   fill
-                  className="object-cover object-[center_30%] transition-transform duration-700 group-hover:scale-[1.04]"
+                  style={{ objectPosition: t.focus ?? "center 30%" }}
+                  className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
                   sizes="(max-width: 768px) 100vw, 50vw"
                   onError={(e) => {
                     (e.currentTarget as HTMLImageElement).style.display = "none";
