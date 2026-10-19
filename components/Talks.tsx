@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-type TalkLink = { label: string; href: string };
+type TalkLink = { label: string; href: string; primary?: boolean };
 
 type Talk = {
   image: string;
@@ -27,7 +27,7 @@ const talks: Talk[] = [
     body: "Presented DocCypher, my hybrid retrieval system for grounded document Q&A, at UT Austin's 2026 symposium on \"Achieving Superintelligence: What does it take?\". Walked researchers through how keyword and semantic search are fused so every answer cites its source page, all inside a 200 MB footprint. My first research poster, and its questions are now shaping the next version.",
     date: "Oct 2026",
     links: [
-      { label: "Poster page", href: "/ifml" },
+      { label: "Learn more", href: "/talks/ifml-2026", primary: true },
       { label: "Live demo", href: "https://doc-cypher.vercel.app" },
       {
         label: "LinkedIn post",
@@ -54,11 +54,14 @@ const talks: Talk[] = [
 function TalkLinks({ links }: { links?: TalkLink[] }) {
   if (!links?.length) return null;
   return (
-    <div className="mt-5 flex flex-wrap gap-x-6 gap-y-2">
+    <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-3">
       {links.map((l) => {
         const external = l.href.startsWith("http");
-        const cls =
-          "group/link inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.18em] text-accent hover:text-accent-bright transition-colors";
+        const cls = cn(
+          "group/link inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.18em] text-accent hover:text-accent-bright transition-colors",
+          l.primary &&
+            "border border-accent/60 bg-accent/[0.06] px-3.5 py-2 hover:border-accent"
+        );
         const inner = (
           <>
             {l.label}

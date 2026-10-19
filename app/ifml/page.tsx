@@ -32,6 +32,11 @@ const links: LinkCard[] = [
     primary: true,
   },
   {
+    label: "About the symposium",
+    desc: "Photos, speakers and what I took away from the two days.",
+    href: "/talks/ifml-2026",
+  },
+  {
     label: "Source code",
     desc: "github.com/Arjunn28/doc-cypher",
     href: "https://github.com/Arjunn28/doc-cypher",
@@ -100,18 +105,13 @@ export default function IFMLPage() {
         <div className="my-10 h-px w-full bg-ink-700" />
 
         <div className="space-y-3">
-          {links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`card-hover group block rounded-xl border px-5 py-5 ${
-                l.primary
-                  ? "border-accent/40 bg-accent/[0.04]"
-                  : "border-ink-700 bg-ink-900/40"
-              }`}
-            >
+          {links.map((l) => {
+            const className = `card-hover group block rounded-xl border px-5 py-5 ${
+              l.primary
+                ? "border-accent/40 bg-accent/[0.04]"
+                : "border-ink-700 bg-ink-900/40"
+            }`;
+            const content = (
               <div className="flex items-center justify-between gap-4">
                 <div>
                   <div className="text-[17px] font-medium text-ink-50">
@@ -126,8 +126,23 @@ export default function IFMLPage() {
                   className="shrink-0 text-accent transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                 />
               </div>
-            </a>
-          ))}
+            );
+            return l.href.startsWith("http") ? (
+              <a
+                key={l.href}
+                href={l.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={className}
+              >
+                {content}
+              </a>
+            ) : (
+              <Link key={l.href} href={l.href} className={className}>
+                {content}
+              </Link>
+            );
+          })}
         </div>
 
         <p className="mt-10 border-l-2 border-accent/50 pl-4 text-sm leading-relaxed text-ink-400">
